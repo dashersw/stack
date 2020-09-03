@@ -30,6 +30,16 @@ $ DOMAIN=another-domain.localhost docker-compose up
 
 You then also need to update your `hosts` file accordingly.
 
+## Debugging
+
+You can debug the backend while it's running in VSCode. Instead of running `docker-compose up`, run the following command:
+
+```sh
+$ docker-compose -f docker-compose.yml -f docker-compose.debug.yml up
+```
+
+This starts the backend service in the debug mode, so you can use the built-in debug task `Attach to backend` to debug your backend service.
+
 # Running tests
 
 ## Running backend tests
