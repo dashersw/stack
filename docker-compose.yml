@@ -1,0 +1,50 @@
+version: '3'
+services:
+  frontend:
+    image: stack-frontend
+    build:
+      context: frontend
+      dockerfile: dev.Dockerfile
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.frontend.rule=Host(`stack.localhost`)'
+      - 'traefik.http.routers.frontend.entrypoints=web'
+    ports:
+      - 8080
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+  backend:
+    image: stack-backend
+    build:
+      context: backend
+      dockerfile: dev.Dockerfile
+    environment:
+      - MONGODB_CONNECTION_STRING=mongodb://mongo/stack
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.backend.rule=(Host(`stack.localhost`) && (PathPrefix(`/api`) || PathPrefix(`/socket`)))'
+      - 'traefik.http.middlewares.backend-stripprefix.stripprefix.prefixes=/api'
+      - 'traefik.http.routers.backend.middlewares=backend-stripprefix@docker'
+      - 'traefik.http.routers.backend.entrypoints=web'
+    ports:
+      - 3000
+      - 35729:35729
+    volumes:
+      - ./backend/src:/app/src
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+  load-balancer:
+    image: traefik:v2.2
+    command:
+      - '--api.insecure=true'
+      - '--providers.docker=true'
+      - '--providers.docker.exposedbydefault=false'
+      - '--entrypoints.web.address=:80'
+    ports:
+      - '80:80'
+      - '8080:8080'
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock:ro'
