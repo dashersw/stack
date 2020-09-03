@@ -22,7 +22,13 @@ Now if you visit http://stack.localhost, you will be greeted with the frontend s
 
 ## Changing the local domain
 
-If you wish to use a domain name other than http://stack.localhost, you need to update it in `docker-compose.yml`. Simply search for `stack.localhost` and replace it with any domain you want. You then also need to update your `hosts` file accordingly.
+If you wish to use a domain name other than http://stack.localhost, simply set the environment variable `DOMAIN` to any domain you want.
+
+```sh
+$ DOMAIN=another-domain.localhost docker-compose up
+```
+
+You then also need to update your `hosts` file accordingly.
 
 # Running tests
 

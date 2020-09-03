@@ -7,7 +7,7 @@ services:
       dockerfile: dev.Dockerfile
     labels:
       - 'traefik.enable=true'
-      - 'traefik.http.routers.frontend.rule=Host(`stack.localhost`)'
+      - 'traefik.http.routers.frontend.rule=Host(`${DOMAIN:-stack.localhost}`)'
       - 'traefik.http.routers.frontend.entrypoints=web'
     ports:
       - 8080
@@ -23,7 +23,7 @@ services:
       - MONGODB_CONNECTION_STRING=mongodb://mongo/stack
     labels:
       - 'traefik.enable=true'
-      - 'traefik.http.routers.backend.rule=(Host(`stack.localhost`) && (PathPrefix(`/api`) || PathPrefix(`/socket`)))'
+      - 'traefik.http.routers.backend.rule=(Host(`${DOMAIN:-stack.localhost}`) && (PathPrefix(`/api`) || PathPrefix(`/socket`)))'
       - 'traefik.http.middlewares.backend-stripprefix.stripprefix.prefixes=/api'
       - 'traefik.http.routers.backend.middlewares=backend-stripprefix@docker'
       - 'traefik.http.routers.backend.entrypoints=web'
