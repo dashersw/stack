@@ -4,10 +4,19 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "lint": "eslint .",
-    "lint-fix": "eslint --fix .",
+    "lint": "pretty-quick -w . && eslint . --fix",
+    "lint-staged": "lint-staged",
     "test": "jest --testEnvironment=node --verbose --forceExit --watchAll --maxWorkers=1",
     "test-coverage": " jest --collect-coverage --testEnvironment=node --forceExit --maxWorkers=1"
+  },
+  "lint-staged": {
+    "*.js": [
+      "pretty-quick --staged",
+      "eslint --fix"
+    ],
+    "*.{json|css|md}": [
+      "pretty-quick --staged"
+    ]
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -28,7 +37,9 @@
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.0",
     "jest": "^26.4.2",
+    "lint-staged": "^10.3.0",
     "prettier": "^2.1.1",
+    "pretty-quick": "^3.0.0",
     "supertest": "^4.0.2"
   }
 }
