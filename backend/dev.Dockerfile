@@ -2,8 +2,6 @@ FROM node:alpine
 
 RUN npm install -g nodemon
 
-ENV NODE_ENV=production
-
 WORKDIR /app
 
 ADD package.json package-lock.json ./
