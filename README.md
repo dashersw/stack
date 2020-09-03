@@ -2,13 +2,31 @@
 
 A starter repository for MongoDB, Node.js, and Vue.js, with a local environment based on Docker.
 
-# Running the stack
+# Installation
+
+## Running the stack
 
 ```sh
 $ docker-compose up
 ```
 
-# Running backend tests
+## Accessing the stack from a browser
+
+The starter stack works with a load balancer that binds to ports 80 and 443. It currently serves the domain http://stack.localhost. In order to reach the frontend through the stack, you need to edit your `hosts` file (usually under `/etc/hosts` in UNIX environments and `C:\Windows\System32\Drivers\etc\hosts` in Windows) and add the following line:
+
+```
+127.0.0.1 stack.localhost
+```
+
+Now if you visit http://stack.localhost, you will be greeted with the frontend starter project.
+
+## Changing the local domain
+
+If you wish to use a domain name other than http://stack.localhost, you need to update it in `docker-compose.yml`. Simply search for `stack.localhost` and replace it with any domain you want. You then also need to update your `hosts` file accordingly.
+
+# Running tests
+
+## Running backend tests
 
 ```sh
 $ cd backend
@@ -16,7 +34,7 @@ $ npm i
 $ npm test
 ```
 
-# Running frontend tests
+## Running frontend tests
 
 ```sh
 $ cd frontend
