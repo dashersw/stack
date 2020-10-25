@@ -1,6 +1,6 @@
 {
   "name": "stack",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "A starter repository for MongoDB, Node.js, and Vue.js, with a local environment based on Docker.",
   "scripts": {
