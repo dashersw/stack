@@ -1,6 +1,40 @@
-# stack
+# stack(MEVN Stack)
 
 A starter repository for MongoDB, Node.js, and Vue.js, with a local environment based on Docker.
+
+<img width="1848" alt="SCR-20240312-bxuj" src="https://github.com/cihat/cihat.dev/assets/57585087/fe1b82d2-e960-4f9c-87ad-fddc3bfe8511">
+
+Technologies used:
+
+- Backend 
+  - Node.js
+  - Express
+  - MongoDB
+  - Mongoose
+  - Jest
+  - ESLint
+  - Prettier
+  - Husky
+  - Lint-staged
+  - Docker
+
+- Frontend
+  - Vue.js
+  - Pinia
+  - Vite
+  - ESLint
+  - Prettier
+  - Husky
+  
+- DB
+  - MongoDB
+  - Mongoose
+
+- Planing & Documentation & Design & Management 
+  - PlantUML
+  - Trello
+  - iThoughtsX
+  - Figma
 
 # Installation
 
@@ -46,22 +80,22 @@ This starts the backend service in the debug mode, so you can use the built-in d
 
 ```sh
 $ cd backend
-$ npm i
-$ npm test
+$ pnpm i
+$ pnpm test
 ```
 
 ## Running frontend tests
 
 ```sh
 $ cd frontend
-$ npm i
-$ npm test:unit
-$ npm test:e2e
+$ pnpm i
+$ pnpm test:unit
+$ pnpm test:e2e
 ```
 
 # Linting
 
-Run `npm install` on the root folder and it will set up a pre-commit hook to lint the staged files. You will also have two lint commands, `npm run lint` and `npm run lint-staged` that you can run on the root folder.
+Run `pnpm install` on the root folder and it will set up a pre-commit hook to lint the staged files. You will also have two lint commands, `pnpm lint` and `pnpm lint-staged` that you can run on the root folder.
 
 These commands run the individual `lint` and `lint-staged` scripts in both the `frontend` and the `backend` folders, and they will respect individual configurations of these folders.
 
@@ -69,7 +103,7 @@ These commands run the individual `lint` and `lint-staged` scripts in both the `
 
 MIT License
 
-Copyright (c) 2020 Armagan Amcalar
+Copyright (c) 2024 Armagan Amcalar
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

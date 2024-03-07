@@ -1,4 +1,4 @@
-FROM node:21-alpine
+FROM node:21-alpine as BUILDER
 
 WORKDIR /app
 
@@ -18,9 +18,16 @@ ADD index.html .
 ADD tsconfig.node.json .
 ADD tsconfig.app.json .
 ADD vite.config.ts .
-ADD .env .
 
-VOLUME [ "/app/src" ]
-VOLUME [ "/app/public" ]
+COPY src ./src
+COPY public ./public
 
-CMD [ "pnpm", "dev" ]
+RUN pnpm build
+
+FROM node:alpine
+
+WORKDIR /app
+
+COPY --from=BUILDER /app/dist ./
+
+CMD [ "pnpm", "start" ]
