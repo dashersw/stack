@@ -30,11 +30,8 @@ Technologies used:
   - MongoDB
   - Mongoose
 
-- Planing & Documentation & Design & Management 
+- UML Diagram Generation
   - PlantUML
-  - Trello
-  - iThoughtsX
-  - Figma
 
 # Installation
 
