@@ -2,8 +2,6 @@
 
 A starter repository for MongoDB, Node.js, and Vue.js, with a local environment based on Docker.
 
-<img width="1848" alt="SCR-20240312-bxuj" src="https://github.com/cihat/cihat.dev/assets/57585087/fe1b82d2-e960-4f9c-87ad-fddc3bfe8511">
-
 Technologies used:
 
 - Backend 
