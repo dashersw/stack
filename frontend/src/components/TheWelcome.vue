@@ -10,6 +10,6 @@ const beatifyedObj = computed(() => {
 })
 </script>
 
-<template>
-  <pre>{{ beatifyedObj }}</pre>
+<template lang="pug">
+pre {{ beatifyedObj }}
 </template>
