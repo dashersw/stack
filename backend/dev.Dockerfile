@@ -1,25 +1,11 @@
-FROM node:21-alpine AS builder
+FROM node:21-alpine
 
-COPY . /app
 WORKDIR /app
 
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
-RUN corepack enable
+ADD package.json ./
 
-FROM builder AS prod-deps
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --prod --frozen-lockfile
-
-FROM builder AS build
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
-
-FROM builder 
-COPY --from=prod-deps /app/node_modules /app/node_modules
-
-ENV NODE_ENV=development
+RUN npm install
 
 ADD bin ./bin
 
-VOLUME [ "/app/src" ]
-
-CMD [ "pnpm", "dev" ]
+CMD [ "npm", "run", "dev" ]

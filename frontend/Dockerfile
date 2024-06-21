@@ -1,33 +1,18 @@
-FROM node:21-alpine as BUILDER
+FROM node:21-alpine
 
 WORKDIR /app
 
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
+ADD package.json package-lock.json ./ 
 
-RUN corepack enable
+RUN npm install
 
-ADD package.json pnpm-lock.yaml ./ 
-
-RUN pnpm install
-
-ADD .eslintrc.cjs .
-ADD .prettierrc.json .
-ADD env.d.ts .
-ADD index.html .
-ADD tsconfig.node.json .
-ADD tsconfig.app.json .
-ADD vite.config.ts .
+ADD .eslintrc.cjs .prettierrc.json env.d.ts index.html tsconfig.node.json tsconfig.app.json vite.config.ts ./
 
 COPY src ./src
 COPY public ./public
 
-RUN pnpm build
-
-FROM node:alpine
+RUN npm build
 
 WORKDIR /app
 
-COPY --from=BUILDER /app/dist ./
-
-CMD [ "pnpm", "start" ]
+CMD [ "npm", "start" ]
