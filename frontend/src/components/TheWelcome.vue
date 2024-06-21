@@ -1,15 +1,21 @@
-<script setup lang="ts">
-import { useUserStore } from '../stores/user.ts'
-import { computed } from 'vue'
+<script lang="ts">
+import { useUserStore } from '../stores/user'
 
-const userStore = useUserStore()
-const { users } = userStore
-
-const beatifyedObj = computed(() => {
-  return JSON.stringify(users, null, 2)
-})
+export default {
+  name: 'TheWelcome',
+  computed: {
+    beautifyedObj(): string {
+      const userStore = useUserStore()
+      return JSON.stringify(userStore.users, null, 2)
+    }
+  },
+  async created() {
+    const userStore = useUserStore()
+    await userStore.fetchUsers()
+  }
+}
 </script>
 
 <template lang="pug">
-pre {{ beatifyedObj }}
+pre {{ beautifyedObj }}
 </template>
