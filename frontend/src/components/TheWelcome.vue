@@ -4,7 +4,7 @@ import { useUserStore } from '../stores/user'
 export default {
   name: 'TheWelcome',
   computed: {
-    beautifyedObj(): string {
+    beautifiedObj(): string {
       const userStore = useUserStore()
       return JSON.stringify(userStore.users, null, 2)
     }
@@ -17,5 +17,5 @@ export default {
 </script>
 
 <template lang="pug">
-pre {{ beautifyedObj }}
+pre {{ beautifiedObj }}
 </template>
