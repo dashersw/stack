@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+    "dev": "node --watch ./bin/www",
     "lint": "pretty-quick -w . && eslint . --fix",
     "lint-staged": "lint-staged",
     "test": "jest --testEnvironment=node --verbose --forceExit --watchAll --maxWorkers=1",
@@ -19,27 +20,28 @@
     ]
   },
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "http-errors": "~1.6.3",
-    "mongoose": "^5.10.2",
-    "mongoose-autopopulate": "^0.12.2",
-    "morgan": "~1.9.1",
-    "pug": "2.0.0-beta11"
+    "cookie-parser": "~1.4.6",
+    "debug": "~4.3.4",
+    "dotenv": "^16.4.5",
+    "express": "~4.18.3",
+    "http-errors": "~2.0.0",
+    "mongoose": "^8.4.3",
+    "mongoose-autopopulate": "^1.1.0",
+    "morgan": "~1.10.0",
+    "pug": "3.0.2"
   },
   "devDependencies": {
-    "eslint": "^7.8.1",
-    "eslint-config-airbnb": "^18.2.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.20.6",
-    "eslint-plugin-react-hooks": "^4.1.0",
-    "jest": "^26.4.2",
-    "lint-staged": "^10.3.0",
-    "prettier": "^2.1.1",
-    "pretty-quick": "^3.0.0",
-    "supertest": "^4.0.2"
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
+    "eslint-plugin-react": "^7.34.3",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "jest": "^29.7.0",
+    "lint-staged": "^15.2.7",
+    "prettier": "^3.3.2",
+    "pretty-quick": "^4.0.0",
+    "supertest": "^6.3.4"
   }
 }

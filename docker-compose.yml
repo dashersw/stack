@@ -10,7 +10,7 @@ services:
       - 'traefik.http.routers.frontend.rule=Host(`${DOMAIN:-stack.localhost}`)'
       - 'traefik.http.routers.frontend.entrypoints=web'
     ports:
-      - 8080
+      - 3001:3001
     volumes:
       - ./frontend/src:/app/src
       - ./frontend/public:/app/public
@@ -23,7 +23,7 @@ services:
       - MONGODB_CONNECTION_STRING=mongodb://mongo/stack
     labels:
       - 'traefik.enable=true'
-      - 'traefik.http.routers.backend.rule=(Host(`${DOMAIN:-stack.localhost}`) && (PathPrefix(`/api`) || PathPrefix(`/socket`)))'
+      - 'traefik.http.routers.backend.rule=Host(`${DOMAIN:-stack.localhost}`) && (PathPrefix(`/api`) || PathPrefix(`/socket`))'
       - 'traefik.http.middlewares.backend-stripprefix.stripprefix.prefixes=/api'
       - 'traefik.http.routers.backend.middlewares=backend-stripprefix@docker'
       - 'traefik.http.routers.backend.entrypoints=web'
@@ -35,7 +35,7 @@ services:
   mongo:
     image: mongo
     ports:
-      - 27017:27017
+      - 37017:27017
   load-balancer:
     image: traefik:v2.2
     command:

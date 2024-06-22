@@ -1,13 +1,14 @@
-FROM node:14-alpine
+FROM node:21-alpine
 
 WORKDIR /app
 
-ADD package.json package-lock.json ./
-
-RUN apk add --update python3 make g++ && rm -rf /var/cache/apk/*
+ADD package.json ./ 
 
 RUN npm install
 
-ADD .browserslistrc .prettierrc .eslintrc.js babel.config.js vue.config.js ./
+ADD .eslintrc.cjs .prettierrc.json env.d.ts  index.html  tsconfig.node.json  tsconfig.app.json  vite.config.ts  .env  ./
 
-CMD [ "npm", "run", "serve" ]
+VOLUME [ "/app/src" ]
+VOLUME [ "/app/public" ]
+
+CMD [ "npm", "run", "dev" ]

@@ -1,13 +1,11 @@
-FROM node:14-alpine
-
-RUN npm install -g nodemon
+FROM node:21-alpine
 
 WORKDIR /app
 
-ADD package.json package-lock.json ./
+ADD package.json ./
 
 RUN npm install
 
 ADD bin ./bin
 
-CMD [ "nodemon" ]
+CMD [ "npm", "run", "dev" ]

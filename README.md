@@ -1,6 +1,35 @@
-# stack
+# stack(MEVN Stack)
 
 A starter repository for MongoDB, Node.js, and Vue.js, with a local environment based on Docker.
+
+Technologies used:
+
+- Backend 
+  - Node.js
+  - Express
+  - MongoDB
+  - Mongoose
+  - Jest
+  - ESLint
+  - Prettier
+  - Husky
+  - Lint-staged
+  - Docker
+
+- Frontend
+  - Vue.js
+  - Pinia
+  - Vite
+  - ESLint
+  - Prettier
+  - Husky
+  
+- DB
+  - MongoDB
+  - Mongoose
+
+- UML Diagram Generation
+  - PlantUML
 
 # Installation
 
@@ -61,7 +90,7 @@ $ npm test:e2e
 
 # Linting
 
-Run `npm install` on the root folder and it will set up a pre-commit hook to lint the staged files. You will also have two lint commands, `npm run lint` and `npm run lint-staged` that you can run on the root folder.
+Run `npm install` on the root folder and it will set up a pre-commit hook to lint the staged files. You will also have two lint commands, `npm lint` and `npm lint-staged` that you can run on the root folder.
 
 These commands run the individual `lint` and `lint-staged` scripts in both the `frontend` and the `backend` folders, and they will respect individual configurations of these folders.
 

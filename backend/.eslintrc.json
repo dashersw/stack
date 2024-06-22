@@ -3,11 +3,18 @@
     "node": true,
     "jest": true
   },
-
-  "extends": ["airbnb", "prettier", "prettier/standard"],
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/standard"
+  ],
   "rules": {
     "eqeqeq": "off",
-    "class-methods-use-this": "off"
+    "class-methods-use-this": "off",
+    "eslint-plugin-import/no-extraneous-dependencies": "off"
   },
   "settings": {
     "react": {
