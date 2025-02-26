@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/dashersw/stack#readme",
   "devDependencies": {
-    "concurrently": "^8.2.2",
-    "husky": "^9.0.11"
+    "concurrently": "^9.1.2",
+    "husky": "^9.1.7"
   }
 }
