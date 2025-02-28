@@ -1,6 +1,8 @@
-FROM node:21-alpine
+FROM node:23-alpine
 
 WORKDIR /app
+
+RUN npm install -g npm@latest
 
 ADD package.json package-lock.json ./ 
 
@@ -11,7 +13,7 @@ ADD .eslintrc.cjs .prettierrc.json env.d.ts index.html tsconfig.node.json tsconf
 COPY src ./src
 COPY public ./public
 
-RUN npm build
+RUN npm run build
 
 WORKDIR /app
 

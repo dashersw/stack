@@ -1,10 +1,12 @@
-FROM node:21-alpine
+FROM node:23-alpine
 
 WORKDIR /app
 
+RUN npm install -g npm@latest
+
 ADD package.json ./
 
-RUN npm install
+RUN npm install --legacy-peer-deps
 
 ADD bin ./bin
 

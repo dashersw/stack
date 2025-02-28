@@ -14,25 +14,25 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "pinia": "^2.1.7",
-    "vue": "^3.4.21",
-    "vue-router": "^4.4.0"
+    "pinia": "^3.0.1",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@rushstack/eslint-patch": "^1.10.3",
+    "@rushstack/eslint-patch": "^1.10.5",
     "@tsconfig/node20": "^20.1.4",
-    "@types/node": "^20.14.7",
-    "@vitejs/plugin-vue": "^5.0.5",
-    "@vue/eslint-config-prettier": "^9.0.0",
-    "@vue/eslint-config-typescript": "^13.0.0",
-    "@vue/tsconfig": "^0.5.1",
-    "eslint": "^8.57.0",
-    "eslint-plugin-vue": "^9.26.0",
-    "npm-run-all2": "^6.2.0",
-    "prettier": "^3.3.2",
-    "typescript": "~5.4.2",
-    "vite": "^5.3.1",
-    "vite-plugin-pug": "^0.3.2",
-    "vue-tsc": "^2.0.21"
+    "@types/node": "^22.13.5",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vue/eslint-config-prettier": "^10.2.0",
+    "@vue/eslint-config-typescript": "^14.4.0",
+    "@vue/tsconfig": "^0.7.0",
+    "eslint": "^9.21.0",
+    "eslint-plugin-vue": "^9.32.0",
+    "npm-run-all2": "^7.0.2",
+    "prettier": "^3.5.2",
+    "typescript": "~5.7.3",
+    "vite": "^6.2.0",
+    "vite-plugin-pug": "^0.4.1",
+    "vue-tsc": "^2.2.4"
   }
 }

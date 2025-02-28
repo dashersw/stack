@@ -1,6 +1,8 @@
-FROM node:21-alpine
+FROM node:23-alpine
 
 WORKDIR /src
+
+RUN npm install -g npm@latest
 
 ADD package.json package-lock.json ./
 
@@ -15,4 +17,3 @@ COPY src ./src
 COPY bin ./bin
 
 CMD ["npm", "start"]
-
